@@ -15,51 +15,29 @@
 #5 ..... *** F ..–. ** P .––. ****** Z ––..
 
 
-space = 'space'
-comma = '––..––'
-period = '.–.–.–'
-question_mark = '..––..'
-zero = '–––––'
-one = '.––––'
-two = '..–––'
-three = '...––'
-four = '....–'
-five = '.....'
-six = '–....'
-seven = '––...'
-eight = '–––..'
-nine = '––––.'
-A = '.–'
-B = '–...'
-C = '–.–.'
-D = '–..'
-E = '.'
-F = '..–.'
-G = '––.'
-H = '....'
-I = '..'
-J = '.–––'
-K = '–.–'
-L = '.–..'
-M = '––'
-N = '–.'
-O = '–––'
-P = '.––.'
-Q = '––.–'
-R = '.–.'
-S = '...'
-T = '–'
-U = '..–'
-V = '...–'
-W = '.––'
-X = '–..–'
-Y = '–.–'
-Z = '––..'
+Morse_code = {'space' : 'space','comma' : '––..––', 'period' : '.–.–.–', 'question_mark' : '..––..',
+              'zero' : '–––––', 'one' : '.––––', 'two' : '..–––', 'three' : '...––', 'four' : '....–',
+              'five' : '.....', 'six' : '–....', 'seven' : '––...', 'eight' : '–––..', 'nine' : '––––.',
+              'A' : '.–', 'B' : '–...', 'C' : '–.–.', 'D' : '–..', 'E' : '.', 'F' : '..–.', 'G' : '––.',
+              'H' : '....', 'I' : '..', 'J' : '.–––', 'K' : '–.–', 'L' : '.–..', 'M' : '––', 'N' : '–.',
+              'O' : '–––', 'P' : '.––.', 'Q' : '––.–', 'R' : '.–.', 'S' : '...', 'T' : '–', 'U' : '..–',
+              'V' : '...–', 'W' : '.––', 'X' : '–..–', 'Y' : '–.–', 'Z' : '––..'}
 
-values = [space, comma, period, question_mark, zero, one, two, three, four, five, six, seven,eight, nine, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z]
+#values = [space, comma, period, question_mark, zero, one, two, three, four, five, six, seven,eight, nine, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z]
 
-user = str(input("Enter a value or alpha : "))
-if values != user and values == user:
-    print("enter a correct value")
-else:
-    print("morse code for your entry is : ", '\n', values)
+
+def encrypt(message):
+    cipher = ''
+    for letter in message:
+        if letter != ' ':
+            cipher += Morse_code[letter] + ' '
+        else:
+            cipher += ' '
+    return cipher
+
+def main():
+    message = str(input("Enter alpha or value : "))
+    result =encrypt(message.upper())
+    print("Morse code is : ", result)
+
+main()
